@@ -232,7 +232,7 @@ enableApps() {
 			apk="$(echo "$apk_full" | cut -f1 -d"|")"
 			apk_desc="$(echo "$apk_full" | cut -f2 -d"|")"
 			if [ "$(echo "$apk_disabled" | grep "$apk")" = "" ]; then
-				echo -e "\n$(linha)\n"${NEG}" $apk_desc"${STD}"\n\"$apk\"\n ${GRE046}Ativar?${STD} ${GRE046}(s/n)${STD}"
+				echo -e "\n$(linha)\n"${NEG}" $apk_desc"${STD}"\n\"$apk\"\n ${GRE046}Ativar? (s ou n)${STD}"
 				pergunta_ativar
 			fi
 		done
@@ -271,7 +271,7 @@ disableApps() {
 			apk="$(echo "$apk_full" | cut -f1 -d"|")"
 			apk_desc="$(echo "$apk_full" | cut -f2 -d"|")"
 			if [ "$(echo "$apk_disabled" | grep "$apk")" = "" ]; then
-				echo -e "\n$(linha)\n"${NEG}" $apk_desc"${STD}"\n\"$apk\"\n ${GRY247}Desativar?${STD} ${GRE046}(s/n)${STD}"
+				echo -e "\n$(linha)\n"${NEG}" $apk_desc"${STD}"\n\"$apk\"\n ${GRY247}Desativar? (s ou n)${STD}"
 				pergunta_desativar
 			fi
 		done
