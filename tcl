@@ -4,7 +4,7 @@
 # https://adbshell.com/commands/adb-shell-pm-list-packages
 
 # Versão do script
-VER="v1.0.0"
+VER="v1.0.1"
 
 # Definição de Cores
 # Tabela de cores: https://misc.flogisoft.com/_media/bash/colors_format/256_colors_fg.png
@@ -79,7 +79,7 @@ atualizar(){
 	separacao
 	echo ""
 	echo -e " ${BLU}*${STD} ${NEG}Baixando dependências para utilizar o script...${SDT}" && sleep 2
-        curl -s https://raw.githubusercontent.com/primenetbr/tcl/main/tcl -o tcl && bash tcl
+        bash <(curl -sL https://raw.githubusercontent.com/primenetbr/tcl/main/install) && menu
 	if [ "$?" -eq "0" ]; then
 		echo ""
 		echo -e " ${GRE}*${STD} ${NEG}Instalação conluida com sucesso!${STD}"
@@ -819,10 +819,12 @@ menu_InstallApps() {
 		echo -e " ${BLU}3.${STD} Downloader"
 		echo -e " ${BLU}4.${STD} SmartTube"
 		echo -e " ${BLU}5.${STD} SendFiles"
-        echo -e " ${BLU}6.${STD} NetMod [VPN]"  
-		echo -e " ${BLU}7.${STD} Launcher Setting (Trocar Launcher)"
+                echo -e " ${BLU}6.${STD} PlutoTV"
+                echo -e " ${BLU}7.${STD} NetMod [VPN]"  
+	        
                 echo -e "${ROX027}═════════════════════════════════════════════${STD}"
-		echo -e " ${BLU}0.${STD} ${ROX063}Voltar ao Menu Principal${STD}"
+		echo -e " ${BLU}100.${STD} Launcher Setting (Trocar Launcher)"
+                echo -e " ${BLU}0.${STD} ${ROX063}Voltar ao Menu Principal${STD}"
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		read -p " Digite um Número: " option
 		case $option in
@@ -831,8 +833,9 @@ menu_InstallApps() {
 			3 ) install_App "Downloader" ;;
 			4 ) install_youtube "smarttube_beta" ;;
 			5 ) install_App "SendFiles" ;;
-            6 ) install_netmod "NetMod" ;;
-			7 ) install_App "LauncherSetting" ;;
+                        6 ) install_App "PlutoTV" ;;
+			7 ) install_netmod "NetMod" ;;
+			100 ) install_App "LauncherSetting" ;;
 			0 ) menu_principal ;;
 			* ) clear; echo -e " ${NEG}Por favor escolha${STD} ${ROS}1${STD}${NEG},${STD} ${ROS}2${STD}${NEG},${STD} ${ROS}3${STD}${NEG},${STD} ${ROS}4${STD}${NEG},${STD} ${ROS}5${STD}${NEG},${STD} ${ROS}6${STD}${NEG},${STD} ${ROS}7${STD}${NEG},${STD} ${ROS}8${STD}${NEG},${STD}  ${ROS}9${STD}${NEG},${STD}   ${ROS}10${STD}${NEG},${STD} ${NEG}ou${STD} ${ROS}0 para sair${STD}";
 		esac
