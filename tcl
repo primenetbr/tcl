@@ -819,7 +819,7 @@ menu_InstallApps() {
 		echo -e " ${BLU}3.${STD} Downloader"
 		echo -e " ${BLU}4.${STD} SmartTube"
 		echo -e " ${BLU}5.${STD} SendFiles"
-                echo -e " ${BLU}6.${STD} PlutoTV"
+                echo -e " ${BLU}6.${STD} PlutoTV v5.54"
                 echo -e " ${BLU}7.${STD} NetMod [VPN]"  
 	        
                 echo -e "${ROX027}═════════════════════════════════════════════${STD}"
