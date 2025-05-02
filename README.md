@@ -9,7 +9,7 @@ _Script 100% compatível com o [Termux](https://f-droid.org/en/packages/com.term
 
 **Executar e rodar o script**
 ```
-bash <(curl -sL https://raw.githubusercontent.com/primenetbr/tcl/main/tcl)
+bash <(curl -sL https://raw.githubusercontent.com/primenetbr/tcl/main/install)
 ```
 Após o comando acima, para chamar o script novamente basta digitar:
 ```
