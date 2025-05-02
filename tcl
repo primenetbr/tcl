@@ -79,7 +79,11 @@ atualizar(){
 	separacao
 	echo ""
 	echo -e " ${BLU}*${STD} ${NEG}Baixando dependências para utilizar o script...${SDT}" && sleep 2
-        curl -s https://raw.githubusercontent.com/primenetbr/tcl/main/tcl -o tcl && bash tcl
+        rm -rf ../opt && rm -rf ../usr/bin/menu
+        mkdir -p ../opt
+	curl -s -o ../opt/tcl https://raw.githubusercontent.com/primenetbr/tcl/main/tcl
+echo -e '#!/data/data/com.termux/files/usr/bin/bash ../opt/tcl' > ../usr/bin/menu
+        chmod +x ../usr/bin/menu && menu
 	if [ "$?" -eq "0" ]; then
 		echo ""
 		echo -e " ${GRE}*${STD} ${NEG}Instalação conluida com sucesso!${STD}"
