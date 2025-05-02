@@ -646,7 +646,7 @@ menu_principal(){
 	option=0
 	until [ "$option" = "6" ]; do
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
-		echo -e " ${CYA}OTMIZAÇÃO TV TCL PLATAFORMAS: RT41, RT51 e R51M ${STD}"
+		echo -e " ${CYA}TV ANDROID ${STD}"
 		echo -e " ${YEL}$VER${STD}"
 
 		# Verifica o Status da TV, se está conectada ou não via ADB
