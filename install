@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+rm -rf ../opt
+rm -rf ../usr/bin/menu
+mkdir -p ../opt
+curl -s -o ../opt/tcl https://raw.githubusercontent.com/primenetbr/tcl/main/tcl
+echo -e '#!/data/data/com.termux/files/usr/bin/bash ../opt/tcl' > ../usr/bin/menu
+chmod +x ../usr/bin/menu
+clear
+echo "INSTALADO COM SUCESSO, DIGITE menu PARA INICIAR"
