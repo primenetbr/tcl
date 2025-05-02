@@ -232,7 +232,7 @@ enableApps() {
 			apk="$(echo "$apk_full" | cut -f1 -d"|")"
 			apk_desc="$(echo "$apk_full" | cut -f2 -d"|")"
 			if [ "$(echo "$apk_disabled" | grep "$apk")" = "" ]; then
-				echo -e "\n$(linha)\n"${NEG}" $apk_desc"${STD}"\n\"$apk\"\n Digite ${GRE046}S${STD}(Sim) para ${GRE046}ATIVAR${STD} ou ${GRY247}N${STD}(Não) para manter ${GRY247}DESATIVADO${STD}"
+				echo -e "\n$(linha)\n"${NEG}" $apk_desc"${STD}"\n\"$apk\"\n ${GRE046}Ativar?${STD} ${GRE046}(s/n)${STD}"
 				pergunta_ativar
 			fi
 		done
@@ -257,7 +257,6 @@ resposta_ativar() {
 
 disableApps() {
 	tput clear
-	
 	OIFS=$IFS
 	IFS=$'\n'
 	
@@ -265,13 +264,14 @@ disableApps() {
 	# Baixar lista de apps para serem desativados
 	echo ""
 	echo -e " ${BLU}*${STD} ${NEG}Aguarde, baixando lista de apps...${STD}" && sleep 1
+        rm -rf ../apps_disable.list
 	wget https://raw.githubusercontent.com/primenetbr/tcl/main/apps-list/apps_disable.list -O "apps_disable.list"
 	if [ -e "apps_disable.list" ]; then
 		for apk_full in $(cat apps_disable.list); do
 			apk="$(echo "$apk_full" | cut -f1 -d"|")"
 			apk_desc="$(echo "$apk_full" | cut -f2 -d"|")"
 			if [ "$(echo "$apk_disabled" | grep "$apk")" = "" ]; then
-				echo -e "\n$(linha)\n"${NEG}" $apk_desc"${STD}"\n\"$apk\"\n Digite ${GRY247}S${STD}(Sim) para ${GRY247}DESATIVAR${STD} ou ${GRE046}N${STD}(Não) para manter ${GRE046}ATIVO${STD}"
+				echo -e "\n$(linha)\n"${NEG}" $apk_desc"${STD}"\n\"$apk\"\n ${GRY247}Desativar?${STD} ${GRE046}(s/n)${STD}"
 				pergunta_desativar
 			fi
 		done
@@ -646,9 +646,7 @@ menu_principal(){
 	option=0
 	until [ "$option" = "6" ]; do
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
-		echo -e " ${CYA}TV ANDROID ${STD}"
-		echo -e " ${YEL}$VER${STD}"
-
+		echo -e " ${CYA}TV ANDROID ${STD} ${CYA}$VER${STD}
 		# Verifica o Status da TV, se está conectada ou não via ADB
 		ping -c 1 $IP >/dev/null 2>&1
 		if [ "$?" -ne 0 ]; then
@@ -661,15 +659,11 @@ menu_principal(){
 			fi
 		fi
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
-		echo -e " ${GRY247}ESTE SCRIPT POSSUI A FINALIDADE DE OTIMIZAR${STD}"
-		echo -e " ${GRY247}O SISTEMA ANDROID TV, REMOVENDO E DESATIVANDO${STD}"
-		echo -e " ${GRY247}ALGUNS APPS E INSTALANDO OUTROS.${STD}"
-		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		echo -e " ${BLU}1.${STD} Remover Lixo"
 		echo -e " ${BLU}2.${STD} Desativar Apps do Sistema"
 		echo -e " ${BLU}3.${STD} Instalar Apps"
 		echo -e " ${BLU}4.${STD} Alterar Launcher"
-        echo -e " ${BLU}5.${STD} Atualizar Script"
+                echo -e " ${BLU}5.${STD} Atualizar Script"
                 echo -e "${ROX027}═════════════════════════════════════════════${STD}"
 		echo -e " ${BLU}0.${STD} Sair do Painel"
 		echo -e "${ROX027}═════════════════════════════════════════════${STD}"
